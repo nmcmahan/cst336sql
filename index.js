@@ -23,20 +23,14 @@ app.get('/', function(req, res){
 
 /* The handler for the /author route */
 app.get('/author', function(req, res){
-    var stmt = 'select * from l9_author where firstName=\'' 
-                + req.query.firstname + '\' and lastName=\'' 
-                + req.query.lastname + '\';'
-	connection.query(stmt, function(error, found){
-	    var author = null;
-	    if(error) throw error;
-	    if(found.length){
-	        author = found[0];
-	        // Convert the Date type into the String type
-	        author.dob = author.dob.toString().split(' ').slice(0,4).join(' ');
-	        author.dod = author.dod.toString().split(' ').slice(0,4).join(' ');
-	    }
-	    res.render('author', {author: author});
-	});
+    var stmt = 'select quote, l9_author.authorId, firstName, lastName from l9_quotes, l9_author where l9_author.firstName=\'' 
+                + req.query.firstname + '\' and l9_author.lastName=\'' 
+                + req.query.lastname + '\' and l9_quotes.authorId=l9_author.authorid;'
+    connection.query(stmt, function(error, results){
+        if(error) throw error;
+        console.log(results);
+        res.render('quotesearch', {quotes: results, firstName: results, lastName:results}); 
+    });
 });
 
 /* The handler for the /author/name/id route */
