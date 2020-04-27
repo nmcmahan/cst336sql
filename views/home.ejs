@@ -1,0 +1,86 @@
+<%- include ('templates/header'); -%>
+
+<div class='container'>
+	<div class='jumbotron'>
+		<h1> POPULAR QUOTES </h1>
+		<form action='/author' method='GET'>
+			<div class='form-group row'>
+				<label for='firstname' class='col-sm-4 col-form-label'>First Name</label>
+				<div class='col-sm-4'>
+					<input type='text' class='form-control' id='firstname' name='firstname' placeholder='Jane' required>
+				</div>
+			</div>
+			<div class='form-group row'>
+				<label for='lastname' class='col-sm-4 col-form-label'>Last Name</label>
+				<div class='col-sm-4'>
+					<input type='text' class='form-control' id='lastname' name='lastname' placeholder='Doe' required>
+				</div>
+			</div>
+			<div class='form-group row'>
+				<div class='col-sm-4'></div>
+				<div class='col-sm-4'>
+					<button class='btn btn-primary btn-block'>Search Author</button>
+				</div>
+				<div class='col-sm-4'></div>
+			</div>
+		</form>
+		<form action='/category' method='GET'>
+			<div class='form-group row'>
+				<label for='category' class='col-sm-4 col-form-label'>Category</label>
+				<select name='category' id='category'>
+                    <option value='Inspirational'>Inspirational</option>
+                    <option value='Life'>Life</option>
+                    <option value='Motivational'>Motivational</option>
+                    <option value='Wisdom'>Wisdom</option>
+                    <option value='Moral'>Moral</option>
+                    <option value='Freedom'>Freedom</option>
+                    <option value='Liberty'>Liberty</option>
+                    </select>
+			</div>
+			<div class='form-group row'>
+				<div class='col-sm-4'></div>
+				<div class='col-sm-4'>
+					<button class='btn btn-primary btn-block'>Search Category</button>
+				</div>
+				<div class='col-sm-4'></div>
+			</div>
+		</form>
+		<form action='/gender' method='GET'>
+			<div class='form-group row'>
+					<div class='col-sm-4'></div>
+				<div class='col-sm-4'>
+					<label for='gender' class='col-sm-4 col-form-label'>Gender</label>
+					<select name='gender' id='gender'>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    </select>
+				</div>
+				</div>
+				<div class='form-group row'>
+				<div class='col-sm-4'></div>
+				<div class='col-sm-4'>
+					<button class='btn btn-primary btn-block'>Search Gender</button>
+				</div>
+				<div class='col-sm-4'></div>
+			</div>
+		</form>
+		<form action='/keyword' method='GET'>
+			<div class='form-group row'>
+				<label for='keyw' class='col-sm-4 col-form-label'>Keyword</label>
+				<div class='col-sm-4'>
+					<input type='text' class='form-control' id='keyw' name='keyw' placeholder='Keyword'>
+				</div>
+			</div>
+			
+			<div class='form-group row'>
+				<div class='col-sm-4'></div>
+				<div class='col-sm-4'>
+					<button class='btn btn-primary btn-block'>Search Keyword</button>
+				</div>
+				<div class='col-sm-4'></div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<%- include ('templates/footer'); -%>
